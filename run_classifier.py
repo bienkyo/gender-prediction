@@ -401,12 +401,15 @@ class CusNameProcessor(DataProcessor):
     def get_dev_examples(self, data_dir):
         return self._create_examples(os.path.join(data_dir, "dev.tsv"))
 
+    def get_test_examples(self, data_dir):
+        return self._create_examples(os.path.join(data_dir, "test.tsv"))
+
     def get_labels(self):
         return ["m", "f"]
 
     def _create_examples(self, data_dir):
         examples = []
-        df = pd.read_csv(data_dir, sep='\t')
+        df = pd.read_csv(data_dir, sep='\t',encoding='utf8')
         for idx, row in df.iterrows():
             examples.append(InputExample(
                 guid="unused_id", text_a=row['name'].lower(), text_b=None, label=row['sex']))
