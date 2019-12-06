@@ -399,7 +399,7 @@ class CusNameProcessor(DataProcessor):
         return self._create_examples(os.path.join(data_dir, "train.tsv"))
 
     def get_dev_examples(self, data_dir):
-        return self._create_examples(os.path.join(data_dir, "dev.tsv"))
+        return self._create_examples(os.path.join(data_dir, "giangntq_test.tsv"))
 
     def get_test_examples(self, data_dir):
         return self._create_examples(os.path.join(data_dir, "test.tsv"))
